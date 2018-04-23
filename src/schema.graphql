@@ -1,0 +1,55 @@
+type Query {
+    description: String!,
+    test: String!,
+    businesses: Businesses!
+}
+
+type Businesses {
+    businesses: [Business]!
+    total: Int!,
+    region: Center!
+}
+
+type Business {
+    id: String!,
+    alias: String!,
+    name: String!,
+    image_url: String!,
+    is_closed: Boolean!,
+    url: String!,
+    review_count: Int!,
+    categories: [Category]!,
+    rating: Float!,
+    coordinates: Coordinates!,
+    transactions: [String],
+    price: String!,
+    location: Location!,
+    phone: String!,
+    display_phone: String!,
+    distance: Float!
+}
+
+type Category {
+    alias: String!,
+    title: String!
+}
+
+type Center {
+    center: Coordinates!
+}
+
+type Coordinates {
+    latitude: Float!,
+    longitude: Float!
+}
+
+type Location {
+    address1: String!,
+    address2: String,
+    address3: String,
+    city: String!,
+    zip_code: String!,
+    country: String!,
+    state: String!,
+    display_address: [String]
+}
