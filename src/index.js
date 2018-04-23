@@ -2,22 +2,31 @@ const { GraphQLServer } = require('graphql-yoga');
 const fetch = require('node-fetch');
 require('dotenv').config();
 
-const yelpBusinessApiUrl = 'https://api.yelp.com/v3/businesses/search?term=restaurants&categories=mexican&latitude=36.713379&longitude=-121.654298';
-// const yelpBusinessApiUrl = `https://api.yelp.com/v3/businesses/search?term=restaurants&categories=mexican&latitude=36.713379&longitude=-121.654298`;
+const yelpBaseUrl = 'https://api.yelp.com/v3/businesses';
 
 const resolvers = {
   Query: {
     description: () => 'GraphQL Demo',
     businesses: () => {
       return fetch(
-        yelpBusinessApiUrl,
+        yelpBaseUrl + '/search?term=restaurants&categories=mexican&latitude=36.713379&longitude=-121.654298',
         {
           headers: {
             Authorization: `Bearer ${process.env.YELP_API_TOKEN}`
           }
         }
         ).then(res => res.json())
-    }
+    },
+    search: (root, args, context, info) => {
+      return fetch(
+        yelpBaseUrl + `/search?term=${args.term}&categories=mexican&latitude=${args.latitude}&longitude=${args.longitude}`,
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.YELP_API_TOKEN}`
+          }
+        }
+        ).then(res => res.json())
+}
   }
 };
 

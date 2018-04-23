@@ -2,6 +2,7 @@ type Query {
     description: String!,
     test: String!,
     businesses: Businesses!
+    search(term: String!, latitude: Float!, longitude: Float): Businesses!
 }
 
 type Businesses {
