@@ -13,7 +13,7 @@ const resolvers = {
         yelpBusinessApiUrl,
         {
           headers: {
-            Authorization: `Bearer ${YELP_API_TOKEN}`
+            Authorization: `Bearer ${process.env.YELP_API_TOKEN}`
           }
         }
         ).then(res => res.json())
