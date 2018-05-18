@@ -3,7 +3,9 @@ type Query {
     test: String!,
     businesses: Businesses!
     search(term: String!, latitude: Float!, longitude: Float): Businesses!
+    travel(lat: String!, long: String!): TravelTime!
 }
+
 
 type Businesses {
     businesses: [Business]!
@@ -53,4 +55,67 @@ type Location {
     country: String!,
     state: String!,
     display_address: [String]
+}
+
+type TravelTime {
+    geocoded_waypoints: [Waypoints]!,
+    routes: [Routes],
+    status: String!
+}
+
+type Waypoints {
+    geocoder_status: String!,
+    place_id: String!
+    types: [String!]!
+}
+
+type Routes {
+    bounds: Bounds!,
+    copyrights: String!,
+    legs: [Legs]!,
+    overview_polyline: Polyline,
+    summary: String!,
+    warnings: [String],
+    waypoint_order: [String]
+}
+
+type Bounds {
+    northeast: Coords,
+    southwest: Coords
+}
+
+type Coords {
+    lat: Float!,
+    long: Float!
+}
+
+type Legs {
+    distance: TextValue,
+    duration: TextValue,
+    end_address: String!,
+    end_location: Coords,
+    start_address: String!,
+    start_location: Coords,
+    steps: [Steps],
+    traffic_speed_entry: [String],
+    via_waypoint: [String]
+}
+
+type TextValue {
+    text: String!,
+    value: Int
+}
+
+type Steps {
+    distance: TextValue!,
+    duration:TextValue!,
+    end_location: Coords!,
+    html_instructions: String!
+    polyline: Polyline,
+    start_location: Coords,
+    travel_mode: String!
+}
+
+type Polyline {
+    points: String!
 }

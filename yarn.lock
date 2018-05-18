@@ -395,6 +395,10 @@ fresh@0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.5.2.tgz#3d8cadd90d976569fa835ab1f8e4b23a105605a7"
 
+graphql-anyscalar@^1.1.0:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/graphql-anyscalar/-/graphql-anyscalar-1.1.2.tgz#2d2fa4b70e9573f953c5fb12faa4abf048163fe5"
+
 graphql-config@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/graphql-config/-/graphql-config-2.0.0.tgz#daf69091055c6f675d63893a2d14c48f3fec3327"
@@ -422,6 +426,13 @@ graphql-import@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/graphql-import/-/graphql-import-0.5.0.tgz#5f678a6d4636d02a829308884aa1f2fa2197f06d"
   dependencies:
+    lodash "^4.17.4"
+
+graphql-leveler@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/graphql-leveler/-/graphql-leveler-1.1.0.tgz#1611e7bb5e2d40702189a17d783d6412b845fe9c"
+  dependencies:
+    graphql-anyscalar "^1.1.0"
     lodash "^4.17.4"
 
 graphql-middleware@^1.1.0:
